@@ -1,0 +1,20 @@
+#input = ''
+#input = '.'
+#input = '\0'
+# input = 'h'
+# input = 'hi'
+
+#input = 'Hllo'
+#input = 'Hello'
+#input = 'hello world'
+#input = 'go to sleep'
+#input = 'zzzzzzzzzzzzzzz'
+
+#input = 'Good morning, a bird landed on my windowsill.'
+#input = 'Gd mrn*, a brd lndd on my wndwsll.'
+# input = 'Gd mrnng, a brd lndd on my wndwsll.'
+
+#input = 'whats up? bring lots of socks and a few spoons'
+#input = 'whats up? bring 12 socks and 30 spoons.'
+
+# input = 'whats up? bring 12 socks and 30 spoons. jfkad;ljfkad;lfjal;k4891301270rufa;dklgha;nc./124]qpf[]p]]1]94132[i]'

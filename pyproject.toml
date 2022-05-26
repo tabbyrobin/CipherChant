@@ -1,0 +1,106 @@
+[tool.poetry]
+name = "cipherchant"
+version = "0.1.0"
+description = ""
+authors = ["Anon <anon@example.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.7"
+zfec = "^1.5.4"
+pyffx = "^0.3.0"
+Cython = "^0.29.21"
+asyncio = "^3.4.3"
+trio = "^0.17.0"
+tricycle = "^0.2.1"
+click = "^7.1.2"
+loguru = "^0.5.3"
+asyncclick = "^7.1.2"
+# pyunishox = {git = "https://github.com/SnoopJeDi/pyunishox", rev = "develop"}
+pyunishox = {git = "https://github.com/SnoopJeDi/pyunishox", rev = "e66bcd2"}
+# fire = {git = "https://github.com/jpic/python-fire", rev = "701177f699d79ee5a1424c68d17b3b0cbb15678a"}
+fire = "^0.3.1"
+sarge = "^0.1.6"
+
+[tool.poetry.dev-dependencies]
+pytest = "^5.2"
+Cython = "^0.29.21"
+tox = "^3.20.1"
+# pre-commit = "^2.8.2"
+################
+# FROM t rex....
+# [tool.poetry.dev-dependencies]
+# TODO Remove build dependencies you don't want (like xdoctest, perhaps)
+tomlkit                  = ">=0.7, <1.0"
+# tyrannosaurus            = ">=0.8, <1.0"
+pre-commit               = "^2"
+pre-commit-hooks         = "^3"
+black                    = "=19.10b0"
+isort                    = "^5"
+# pytest                   = "^6"
+hypothesis               = "^5"
+coverage                 = {extras = ["toml"], version = "^5"}
+pytest-cov               = "^2"
+# xdoctest                 = "^0.12, <1.0"
+mypy                     = ">=0.700, <1.0"
+flake8                   = "^3"
+flake8-docstrings        = "^1"
+flake8-bandit            = "^2"
+flake8-bugbear           = "^20"
+# sphinx                   = "^3"
+# sphinx-autoapi           = "^1"
+# sphinx-rtd-theme         = ">=0.5, <1.0"
+
+[tool.poetry.extras]
+# auto-filled from dev-deps
+dev     = [
+        "tomlkit",
+        # "tyrannosaurus",
+        "pre-commit", "pre-commit-hooks", "black", "isort",
+        "pytest", "hypothesis", "coverage", "pytest-cov",
+        # "xdoctest",
+        "mypy", "flake8", "flake8-docstrings", "flake8-bandit", "flake8-bugbear",
+        # "sphinx",  "sphinx-autoapi", "sphinx-rtd-theme"
+]
+
+[tool.poetry.scripts]
+cipherchant = "cipherchant.cipherchant:main"
+
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"
+
+
+#########################################################################################
+# Style checking
+#########################################################################################
+
+[tool.coverage.paths]
+source = ["cipherchant"]
+
+[tool.coverage.run]
+source = ["cipherchant"]
+
+[tool.coverage.report]
+show_missing = true
+
+[tool.black]
+line-length = 100
+# target-version = ["py38"]
+target-version = ["py37"]
+
+[tool.isort]
+line_length = 100
+
+[mypy]
+check_untyped_defs = true
+strict_optional = true
+
+[pycodestyle]
+max-line-length = 100
+statistics = true
+
+[pydocstyle]
+# 212 and 213 contradict; 203 and 204 contradict; D302 is not relevant in Py3
+# D107 isn't needed sometimes
+# and the rest are just too picky
+ignore = ["D107", "D200", "D203", "D205", "D212", "D302", "D400", "D403", "D409", "D411"]
